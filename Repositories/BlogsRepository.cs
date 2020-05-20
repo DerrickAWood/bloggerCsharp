@@ -25,8 +25,8 @@ namespace bloggercsharp.Repositories
       string sql = @"
       INSERT INTO blogs
       (title, body, isPublished)
-      VALUES 
-      (@Title, @Body, @isPublished)
+      VALUES
+      (@Title, @Body, @isPublished);
       SELECT LAST_INSERT_ID()";
      newBlog.Id = _db.ExecuteScalar<int>(sql, newBlog);
      return newBlog;
