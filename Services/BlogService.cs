@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using bloggercsharp.Models;
 using bloggercsharp.Repositories;
@@ -17,6 +18,12 @@ namespace bloggercsharp.Services
     public IEnumerable<Blog> GetAll()
     {
       return _repo.GetAll();
+    }
+
+    internal Blog Create(Blog newBlog)
+    {
+      Blog createdBlog = _repo.Create(newBlog);
+      return createdBlog;
     }
   }
 }

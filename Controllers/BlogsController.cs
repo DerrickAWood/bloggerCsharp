@@ -30,7 +30,19 @@ namespace bloggercsharp.Controllers
       }
       catch (System.Exception err)
       {
-          throw ;
+          return BadRequest(err.Message) ;
+      }
+    }
+    [HttpPost]
+    public ActionResult<Blog> Create([FromBody] Blog newBlog)
+    {
+      try
+      {
+          return Ok(_bs.Create(newBlog));
+      }
+      catch (System.Exception err)
+      {
+          return BadRequest(err.Message);
       }
     }
   }
